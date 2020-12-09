@@ -1,7 +1,3 @@
-/**
- * @author Anthony
- */
-
 package com.capstone.quiz.lit;
 //
 import com.github.cliftonlabs.json_simple.JsonArray;
