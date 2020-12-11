@@ -4,7 +4,6 @@ import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button; 
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 
@@ -23,8 +22,8 @@ public class TestSelectController {
     
     @FXML
     protected void initialize() {
-        list = new ListView<String>();
-        ObservableList<String> items =FXCollections.observableArrayList();
+        list = new ListView();
+        ObservableList<String> items = FXCollections.observableArrayList();
         for(int i=0; i<App.getTestAmmount(); i++) {
             items.add(App.getTest(i).getName());
         }
@@ -38,10 +37,13 @@ public class TestSelectController {
     
     
     @FXML
-    private void startSelectedTest() {
+    private void startSelectedTest() throws IOException {
+        mainAnchorPane.getChildren().remove(list);
         int index = list.getSelectionModel().getSelectedIndex();
-        if(index > -1) {
-            App.getTest(index).printFirstQuestionDataTest();
+        if(index > -1) { 
+//            App.getTest(index).printFirstQuestionDataTest();
+            App.currentTest = index;
+            App.setRoot("testPage");
         }
     }
 }
