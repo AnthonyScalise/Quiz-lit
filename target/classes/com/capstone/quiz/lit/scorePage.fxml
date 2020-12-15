@@ -16,9 +16,14 @@
                         <Font name="System Bold" size="48.0" />
                     </font>
                 </Button>
-            <Label layoutX="325.0" layoutY="379.0" prefHeight="93.0" prefWidth="757.0" text="You Completed The Test!" textAlignment="CENTER">
+            <Label layoutX="325.0" layoutY="203.0" prefHeight="93.0" prefWidth="757.0" text="You Completed The Test!" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Nirmala UI Bold" size="64.0" />
+               </font>
+            </Label>
+            <Label fx:id="score" alignment="CENTER" layoutX="441.0" layoutY="302.0" prefHeight="215.0" prefWidth="524.0" text="100%">
+               <font>
+                  <Font name="Nirmala UI Bold" size="72.0" />
                </font>
             </Label>
             </children>

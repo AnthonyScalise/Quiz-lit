@@ -22,6 +22,7 @@ public class App extends Application {
     private static List<TestProfile> localTestList;
     private static int testAmmount;
     public static int currentTest = 0;
+    public static List<Boolean> currentTestScore;
 
     @Override
     public void start(Stage stage) throws IOException {

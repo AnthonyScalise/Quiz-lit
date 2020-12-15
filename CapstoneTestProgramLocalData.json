@@ -8,32 +8,35 @@
             "questionList": [
                 {
                     "answerList": [
-                        "Yes 0",
-                        "No 0"
+                        "Yes",
+                        "No",
+                        "Maybe"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "This is question 0 on test 0?",
-                    "answerAmmount": 2,
+                    "answerAmmount": 3,
                     "id": 0
                 },
                 {
                     "answerList": [
-                        "Yes 1",
-                        "No 1"
+                        "Hades",
+                        "Nimmi",
+                        "Anthony"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "This is question 1 on test 0?",
-                    "answerAmmount": 2,
+                    "answerAmmount": 3,
                     "id": 0
                 },
                 {
                     "answerList": [
-                        "Yes 2",
-                        "No 2"
+                        "Red",
+                        "Orange",
+                        "Yellow"
                     ],
                     "correctAnswerId": 0,
                     "question": "This is question 2 on test 0?",
-                    "answerAmmount": 2,
+                    "answerAmmount": 3,
                     "id": 0
                 }
             ]
