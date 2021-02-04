@@ -1,49 +1,76 @@
 {
-    "testAmmount": 3,
+    "testAmmount": 2,
     "localTestList": [
         {
             "timeLimit": 0,
-            "name": "exampleTest 0",
-            "questionAmmount": 3,
+            "name": "Example Test 1",
+            "questionAmmount": 5,
             "questionList": [
                 {
                     "answerList": [
-                        "Yes",
-                        "No",
-                        "Maybe"
+                        "3",
+                        "5",
+                        "20",
+                        "60"
                     ],
-                    "correctAnswerId": 2,
-                    "question": "This is question 0 on test 0?",
-                    "answerAmmount": 3,
+                    "correctAnswerId": 3,
+                    "question": "What is three fifth of 100?",
+                    "answerAmmount": 4,
                     "id": 0
                 },
                 {
                     "answerList": [
-                        "Hades",
-                        "Nimmi",
-                        "Anthony"
+                        "17 years",
+                        "19 years",
+                        "20 years",
+                        "37 years"
                     ],
                     "correctAnswerId": 1,
-                    "question": "This is question 1 on test 0?",
-                    "answerAmmount": 3,
+                    "question": "If David's age is 27 years old in 2011. What was his age in 2003?",
+                    "answerAmmount": 4,
                     "id": 0
                 },
                 {
                     "answerList": [
-                        "Red",
-                        "Orange",
-                        "Yellow"
+                        "15",
+                        "30",
+                        "225",
+                        "252"
+                    ],
+                    "correctAnswerId": 2,
+                    "question": "What is the square of 15?",
+                    "answerAmmount": 4,
+                    "id": 0
+                },
+                {
+                    "answerList": [
+                        "13",
+                        "1",
+                        "169",
+                        "338"
                     ],
                     "correctAnswerId": 0,
-                    "question": "This is question 2 on test 0?",
-                    "answerAmmount": 3,
+                    "question": "What is the value of x if x^2 = 169?",
+                    "answerAmmount": 4,
+                    "id": 0
+                },
+                {
+                    "answerList": [
+                        "12",
+                        "120",
+                        "1200",
+                        "12000"
+                    ],
+                    "correctAnswerId": 2,
+                    "question": "In a century how many months are there?",
+                    "answerAmmount": 4,
                     "id": 0
                 }
             ]
         },
         {
             "timeLimit": 0,
-            "name": "exampleTest 1",
+            "name": "Example Test 2",
             "questionAmmount": 1,
             "questionList": [
                 {
@@ -52,26 +79,9 @@
                         "No"
                     ],
                     "correctAnswerId": 0,
-                    "question": "This is question 1?",
+                    "question": "Is this thing working?",
                     "answerAmmount": 2,
                     "id": 1
-                }
-            ]
-        },
-        {
-            "timeLimit": 0,
-            "name": "exampleTest 2",
-            "questionAmmount": 1,
-            "questionList": [
-                {
-                    "answerList": [
-                        "Yes",
-                        "No"
-                    ],
-                    "correctAnswerId": 0,
-                    "question": "This is question 2?",
-                    "answerAmmount": 2,
-                    "id": 2
                 }
             ]
         }

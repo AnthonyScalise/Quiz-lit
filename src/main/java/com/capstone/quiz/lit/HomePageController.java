@@ -9,4 +9,9 @@ public class HomePageController {
     private void switchToTestSelectPage() throws IOException {
         App.setRoot("testSelectPage");
     }
+    
+    @FXML
+    private void switchToManagementPage() throws IOException {
+        App.setRoot("managementPage");
+    }
 }

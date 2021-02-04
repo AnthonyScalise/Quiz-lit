@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.CardPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="970.0" prefWidth="1406.0" spacing="20.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.capstone.quiz.lit.ManagementPageController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1406.0" style="-fx-background-color: grey;">
+         <children>
+            <AnchorPane layoutX="286.0" prefHeight="970.0" prefWidth="1120.0" style="-fx-background-color: #525252; -fx-background-radius: 10px;">
+               <children>
+                  <TextField alignment="CENTER" layoutX="17.0" layoutY="23.0" prefHeight="71.0" prefWidth="1086.0" promptText="Question">
+                     <font>
+                        <Font name="Nirmala UI Bold" size="30.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="124.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: white;" text="Add An Answer">
+                     <font>
+                        <Font name="Nirmala UI Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="124.0" layoutY="185.0" prefHeight="771.0" prefWidth="873.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                     <children>
+                        <AnchorPane prefHeight="92.0" prefWidth="873.0">
+                           <children>
+                              <TextField prefHeight="100.0" prefWidth="777.0" text="Answer 1" />
+                              <CheckBox layoutX="786.0" layoutY="8.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="73.0" text="Correct" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="92.0" prefWidth="873.0">
+                           <children>
+                              <TextField prefHeight="100.0" prefWidth="777.0" text="Answer 2" />
+                              <CheckBox layoutX="786.0" layoutY="8.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="73.0" text="Correct" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="92.0" prefWidth="873.0">
+                           <children>
+                              <TextField prefHeight="100.0" prefWidth="777.0" text="Answer 3" />
+                              <CheckBox layoutX="786.0" layoutY="8.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="73.0" text="Correct" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="92.0" prefWidth="873.0">
+                           <children>
+                              <TextField prefHeight="100.0" prefWidth="777.0" text="Answer 4" />
+                              <CheckBox layoutX="788.0" layoutY="8.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="73.0" text="Correct" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Button onAction="#switchToHomePage" layoutY="871.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #525252;" text="Exit">
+               <font>
+                  <Font name="Nirmala UI Bold" size="36.0" />
+               </font>
+            </Button>
+            <Button layoutX="143.0" layoutY="871.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #525252;" text="Save">
+               <font>
+                  <Font name="Nirmala UI Bold" size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
