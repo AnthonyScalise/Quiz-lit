@@ -27,7 +27,7 @@
                         <Font name="System Bold" size="48.0" />
                     </font>
                 </Button>
-                <ListView fx:id="selectionView" editable="true" fixedCellSize="10.0" layoutX="197.0" layoutY="166.0" prefHeight="657.0" prefWidth="1012.0" style="-fx-background-color: #505050; -fx-background-radius: 20px;" />
+                <ListView fx:id="selectionView" fixedCellSize="10.0" layoutX="197.0" layoutY="166.0" prefHeight="657.0" prefWidth="1012.0" style="-fx-background-color: #525252; -fx-background-radius: 10px;" />
             </children>
         </AnchorPane>
     </children>
