@@ -53,6 +53,22 @@ public class TestProfile implements Jsonable {
     public String[] getAnswers(int questionId) {
         return this.questionList.get(questionId).getAnswers();
     }
+    
+    public void setAnswer(int questionIndex, int answerIndex, String answerData) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.get(questionIndex).setAnswer(answerIndex, answerData);
+        }
+    }
+    
+    public void setQuestion(int questionIndex, String questionData) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.get(questionIndex).setQuestion(questionData);
+        }
+    }
+    
+    public void addAnswer(int questionIndex, int answerIndex, String answerData) {
+        this.questionList.get(questionIndex).addAnswer(answerIndex, answerData);
+    }
 
     public int getCorrectAnswerId(int questionId) {
         return this.questionList.get(questionId).getCorrectAnswerId();

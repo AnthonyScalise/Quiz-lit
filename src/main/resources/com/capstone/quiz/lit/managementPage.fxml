@@ -22,7 +22,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="addQuestionButton" layoutX="23.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add A Question">
+                  <Button onAction="#addAQuestion" fx:id="addQuestionButton" layoutX="23.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add A Question">
                      <font>
                         <Font name="Nirmala UI Bold" size="18.0" />
                      </font>
@@ -45,7 +45,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="addAnswerButton" layoutX="213.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add An Answer">
+                  <Button onAction="#addAnAnswer" fx:id="addAnswerButton" layoutX="213.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add An Answer">
                      <font>
                         <Font name="Nirmala UI Bold" size="18.0" />
                      </font>
@@ -57,7 +57,7 @@
                   <Font name="Nirmala UI Bold" size="36.0" />
                </font>
             </Button>
-            <Button layoutX="156.0" layoutY="885.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #505050;" text="Save">
+            <Button onAction="#saveData" fx:id="saveButton" layoutX="156.0" layoutY="885.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #505050;" text="Save">
                <font>
                   <Font name="Nirmala UI Bold" size="36.0" />
                </font>

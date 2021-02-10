@@ -8,14 +8,15 @@ import java.util.List;
 
 public class QuestionProfile {
     private int id = 0;
-    private String question = "";
+    private StringBuilder question = new StringBuilder("");
+    //private String question = "";
     private int answerAmmount = 0;
     private List<String> answerList;
     private int correctAnswerId = 0;
     
     public QuestionProfile(int qId, String qQuestion, int qAnsAmmount, List<String> qAnsList, int qCorrectAnsId) {
         this.id =  qId;
-        this.question = qQuestion;
+        this.question.replace(0, this.question.length(), qQuestion);
         this.answerAmmount = qAnsAmmount;
         this.answerList = qAnsList;
         this.correctAnswerId = qCorrectAnsId;
@@ -23,7 +24,7 @@ public class QuestionProfile {
     
     public QuestionProfile(JsonObject json) {
         this.id = Integer.parseInt(json.get("id").toString());
-        this.question = json.get("question").toString();
+        this.question.replace(0, this.question.length(), json.get("question").toString());
         this.answerAmmount = Integer.parseInt(json.get("answerAmmount").toString());
         ArrayList<String> ansList = new ArrayList<>();
         for(int i=0; i<this.answerAmmount; i++) {
@@ -39,7 +40,7 @@ public class QuestionProfile {
     }
     
     public String getQuestion() {
-        return this.question;
+        return this.question.toString();
     }
     
     public String[] getAnswers() {
@@ -50,6 +51,20 @@ public class QuestionProfile {
         return answerStringList;
     }
     
+    public void setAnswer(int index, String answerData) {
+        if(index < this.answerAmmount) {
+            this.answerList.set(index, answerData);
+        }
+    } 
+    
+    public void addAnswer(int index, String answerData) {
+        this.answerList.add(index, answerData);
+    }
+    
+    public void setQuestion(String questionData) {
+        this.question.replace(0, this.question.length(), questionData);
+    }
+    
     public int getCorrectAnswerId() {
         return this.correctAnswerId;
     }
@@ -57,7 +72,7 @@ public class QuestionProfile {
     public JsonObject packJsonObject() {
         JsonObject json = new JsonObject();
         json.put("id", this.id);
-        json.put("question", this.question);
+        json.put("question", this.question.toString());
         json.put("answerAmmount", this.answerAmmount);
         String[] answerArray = new String[this.answerAmmount];
         for(int i=0; i<this.answerAmmount; i++) {

@@ -71,6 +71,14 @@ public class App extends Application {
         }
     }
     
+    public static void saveLocalData() {
+        createLocalData(localTestList);
+    }
+    
+    public static void reloadLocalData() {
+        getLocalData();
+    }
+    
     public static TestProfile getTest(int num) {
         return localTestList.get(num);
     }
@@ -80,33 +88,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {    
-//        List<TestProfile> tList = new ArrayList<>();
-//        
-//        List<QuestionProfile> qList = new ArrayList<>();
-//        List<String> ansList = new ArrayList<>();
-//        ansList.add("Yes");
-//        ansList.add("No");
-//        qList.add(new QuestionProfile(0, "Is this thing working?", 2, ansList, 0));
-//        tList.add(new TestProfile("exampleTest 0", 0, 1, qList));
-//        
-//        List<QuestionProfile> qList1 = new ArrayList<>();
-//        List<String> ansList1 = new ArrayList<>();
-//        ansList1.add("Yes");
-//        ansList1.add("No");
-//        qList1.add(new QuestionProfile(1, "Is this thing working1?", 2, ansList1, 0));
-//        tList.add(new TestProfile("exampleTest 1", 0, 1, qList1));
-//        
-//        List<QuestionProfile> qList2 = new ArrayList<>();
-//        List<String> ansList2 = new ArrayList<>();
-//        ansList2.add("Yes");
-//        ansList2.add("No");
-//        qList2.add(new QuestionProfile(2, "Is this thing working2?", 2, ansList2, 0));
-//        tList.add(new TestProfile("exampleTest 2", 0, 1, qList2));
-//        
-//        createLocalData(tList);
-
         getLocalData();
-
         launch();
     }
 }

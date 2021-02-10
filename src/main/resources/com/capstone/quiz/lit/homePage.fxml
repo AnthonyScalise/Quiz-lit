@@ -11,7 +11,7 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1406.0" style="-fx-background-color: grey;">
          <children>
-            <Text layoutX="283.0" layoutY="206.0" stroke="#ffd400" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Testing Program Prototype" textAlignment="CENTER" wrappingWidth="800.13671875">
+            <Text layoutX="283.0" layoutY="206.0" stroke="#ffd400" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Quiz-lit" textAlignment="CENTER" wrappingWidth="800.13671875">
                <font>
                   <Font name="Nirmala UI Bold" size="64.0" />
                </font>
