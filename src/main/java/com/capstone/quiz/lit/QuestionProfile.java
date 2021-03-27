@@ -35,12 +35,26 @@ public class QuestionProfile {
         this.correctAnswerId = Integer.parseInt(json.get("correctAnswerId").toString());
     }
     
+    public QuestionProfile(QuestionProfile question) {
+        this.id = question.getId();
+        this.question.replace(0, this.question.length(), question.getQuestion());
+        this.answerAmmount = question.getAnswerAmmount();
+        for(String answer : question.getAnswers()) {
+            this.answerList.add(answer);
+        }
+        this.correctAnswerId = question.getCorrectAnswerId();
+    }
+    
     public int getId() {
         return this.id;
     }
     
     public String getQuestion() {
         return this.question.toString();
+    }
+    
+    public int getAnswerAmmount() {
+        return this.answerAmmount;
     }
     
     public String[] getAnswers() {
@@ -55,10 +69,18 @@ public class QuestionProfile {
         if(index < this.answerAmmount) {
             this.answerList.set(index, answerData);
         }
+    }
+    
+    public void removeAnswer(int index) {
+        if(index < this.answerAmmount) {
+            this.answerList.remove(index);
+            this.answerAmmount--;
+        }
     } 
     
     public void addAnswer(int index, String answerData) {
         this.answerList.add(index, answerData);
+        this.answerAmmount++;
     }
     
     public void setQuestion(String questionData) {

@@ -34,12 +34,25 @@ public class TestProfile implements Jsonable {
         this.questionList.addAll(qList);
     }
     
+    public TestProfile(TestProfile test) {
+        this.name = test.getName();
+        this.timeLimit = test.getTimeLimit();
+        this.questionAmmount = test.getQuestionAmmount();
+        for(QuestionProfile question : test.getQuestionList()) {
+            this.questionList.add(new QuestionProfile(question));
+        }
+    }
+    
     public String getName() {
         return this.name;
     }
 
     public int getTimeLimit() {
         return this.timeLimit;
+    }
+    
+    public List<QuestionProfile> getQuestionList() {
+        return this.questionList;
     }
     
     public String getQuestion(int questionId) {
@@ -57,6 +70,12 @@ public class TestProfile implements Jsonable {
     public void setAnswer(int questionIndex, int answerIndex, String answerData) {
         if(questionIndex < this.questionAmmount) {
             this.questionList.get(questionIndex).setAnswer(answerIndex, answerData);
+        }
+    }
+    
+    public void removeAnswer(int questionIndex, int answerIndex) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.get(questionIndex).removeAnswer(answerIndex);
         }
     }
     

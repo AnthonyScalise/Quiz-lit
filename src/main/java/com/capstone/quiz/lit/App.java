@@ -71,6 +71,17 @@ public class App extends Application {
         }
     }
     
+    public static JsonObject toJsonObject(List<TestProfile> testList) {
+        JsonObject saveObject = new JsonObject();
+        saveObject.put("testAmmount", testList.size());
+        JsonArray testArray = new JsonArray();
+        for(int i=0; i<testList.size(); i++) {
+            testArray.add(testList.get(i));
+        }
+        saveObject.put("localTestList", testArray); 
+        return saveObject;
+    }
+    
     public static void saveLocalData() {
         createLocalData(localTestList);
     }
@@ -81,6 +92,10 @@ public class App extends Application {
     
     public static TestProfile getTest(int num) {
         return localTestList.get(num);
+    }
+    
+    public static List<TestProfile> getTestList() {
+        return localTestList;
     }
     
     public static int getTestAmmount() {
