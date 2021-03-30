@@ -1,5 +1,5 @@
 package com.capstone.quiz.lit;
-//
+
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
@@ -100,6 +100,14 @@ public class App extends Application {
     
     public static int getTestAmmount() {
         return testAmmount;
+    }
+    
+    public static void addQuestion(int testNum, int questionNum) {
+        localTestList.get(testNum).addQuestion(questionNum);
+    }
+    
+    public static void removeQuestion(int testNum, int questionNum) {
+        localTestList.get(testNum).removeQuestion(questionNum);
     }
 
     public static void main(String[] args) {    

@@ -71,7 +71,10 @@ public class ManagementPageController {
     protected void initialize() {
         allChangesSaved = false;
         saveButton.setDisable(true);
-        
+        startInterface();
+    }
+    
+    private void startInterface() {
         for(int i=0; i<App.getTestAmmount(); i++) {
             testItems.add(App.getTest(i).getName());
         }
@@ -96,24 +99,51 @@ public class ManagementPageController {
         answerContentAnchor.getChildren().add(answerContentBox);
         answerNumAnchor.getChildren().add(answerNumberBox);
         
-        
+        refreshQuestionList();
+        refreshAnswerList(); 
+    }
+    
+    private void refreshInterface(int testSelectionNum, int questionSelectionNum) {
+        clearAnswerSelectionListeners();
+        removeQuestionListener();
+        testItems = FXCollections.observableArrayList();
+        questionItems = FXCollections.observableArrayList();
+        testList = new ListView();
+        questionList = new ListView();
+        testSelectionAnchor.getChildren().clear();
+        questionSelectionAnchor.getChildren().clear();
+        answerContentAnchor.getChildren().clear();
+        answerNumAnchor.getChildren().clear();
+        startInterface();
+        testList.getSelectionModel().select(testSelectionNum);
+        questionList.getSelectionModel().select(questionSelectionNum);
+    }
+    
+    private void refreshInterface() {
+        int testSelectionNum = testList.getSelectionModel().getSelectedIndex();
+        int questionSelectionNum = questionList.getSelectionModel().getSelectedIndex();
+        refreshInterface(testSelectionNum, questionSelectionNum);
+    }
+    
+    private void refreshQuestionList() {
         testList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             clearAnswerSelectionListeners();
-//            System.out.println("!SWITCHING TO DIFFERENT TEST!");
-//            System.out.println(selectedAnswerEventHandlers);
-            questionItems.clear();
             removeQuestionListener();
+            //System.out.println("!SWITCHING TO DIFFERENT TEST!");
+            //System.out.println(selectedAnswerEventHandlers);
+            questionItems.clear();
             int testNum = testList.getSelectionModel().getSelectedIndex();
             for(int i=1; i<=App.getTest(testNum).getQuestionAmmount(); i++) {
                 questionItems.add("Question "+i);
             }
         });
-        
-        
+    }
+    
+    private void refreshAnswerList() {
         questionList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             clearAnswerSelectionListeners();
-//            System.out.println("!SWITCHING TO DIFFERENT QUESTION!");
-//            System.out.println(selectedAnswerEventHandlers);
+            //System.out.println("!SWITCHING TO DIFFERENT QUESTION!");
+            //System.out.println(selectedAnswerEventHandlers);
             answerContentBox.getChildren().clear();
             answerNumberBox.getChildren().clear();
             answerContentItems.clear();
@@ -216,8 +246,28 @@ public class ManagementPageController {
     private void addAQuestion() throws IOException {
         if(testList.getSelectionModel().getSelectedIndex() > -1) {
             int testNum = testList.getSelectionModel().getSelectedIndex();
-            int questionNum = questionList.getSelectionModel().getSelectedIndex();
+            int questionNum = questionList.getSelectionModel().getSelectedIndex()+1;
+            App.addQuestion(testNum, questionNum);
+            refreshInterface(testNum, questionNum);
             changes(true);
+        }
+    }
+    
+
+    @FXML
+    private void removeAQuestion() throws IOException {
+        int testNum = testList.getSelectionModel().getSelectedIndex();
+        int questionNum = questionList.getSelectionModel().getSelectedIndex();
+        if(testNum > -1) {
+            if(questionNum > -1) {
+                App.removeQuestion(testNum, questionNum);
+                if(questionNum == 0) {
+                    refreshInterface(testNum, questionNum);
+                } else {
+                    refreshInterface(testNum, questionNum-1);
+                }
+                changes(true);
+            }
         }
     }
     

@@ -79,6 +79,13 @@ public class TestProfile implements Jsonable {
         }
     }
     
+    public void removeQuestion(int questionIndex) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.remove(questionIndex);
+            this.questionAmmount--;
+        }
+    }
+    
     public void setQuestion(int questionIndex, String questionData) {
         if(questionIndex < this.questionAmmount) {
             this.questionList.get(questionIndex).setQuestion(questionData);
@@ -87,6 +94,11 @@ public class TestProfile implements Jsonable {
     
     public void addAnswer(int questionIndex, int answerIndex, String answerData) {
         this.questionList.get(questionIndex).addAnswer(answerIndex, answerData);
+    }
+    
+    public void addQuestion(int questionNum) {
+        this.questionList.add(questionNum, new QuestionProfile(questionNum, ("Question "+String.valueOf(questionNum+1)), 0, new ArrayList<>(), 0));
+        this.questionAmmount++;
     }
 
     public int getCorrectAnswerId(int questionId) {

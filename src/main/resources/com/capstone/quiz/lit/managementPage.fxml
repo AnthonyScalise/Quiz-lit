@@ -45,12 +45,17 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="addAnswerButton" layoutX="213.0" layoutY="118.0" mnemonicParsing="false" onAction="#addAnAnswer" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add An Answer">
+                  <Button fx:id="addAnswerButton" layoutX="438.0" layoutY="118.0" mnemonicParsing="false" onAction="#addAnAnswer" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add An Answer">
                      <font>
                         <Font name="Nirmala UI Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="removeAnswerButton" layoutX="404.0" layoutY="118.0" mnemonicParsing="false" onAction="#removeAnswers" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Remove Answers">
+                  <Button fx:id="removeAnswerButton" layoutX="627.0" layoutY="118.0" mnemonicParsing="false" onAction="#removeAnswers" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Remove Answers">
+                     <font>
+                        <Font name="Nirmala UI Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="removeQuestionButton" layoutX="214.0" layoutY="118.0" mnemonicParsing="false" onAction="#removeAQuestion" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Remove A Question">
                      <font>
                         <Font name="Nirmala UI Bold" size="18.0" />
                      </font>

@@ -76,7 +76,7 @@ public class QuestionProfile {
             this.answerList.remove(index);
             this.answerAmmount--;
         }
-    } 
+    }
     
     public void addAnswer(int index, String answerData) {
         this.answerList.add(index, answerData);
