@@ -14,7 +14,7 @@
          <children>
             <AnchorPane layoutX="296.0" layoutY="11.0" prefHeight="948.0" prefWidth="1102.0" style="-fx-background-color: #5e5e5e; -fx-background-radius: 10px;">
                <children>
-                  <TextField fx:id="questionField" alignment="CENTER" layoutX="23.0" layoutY="22.0" prefHeight="71.0" prefWidth="1057.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Question">
+                  <TextField fx:id="questionField" alignment="CENTER" layoutX="23.0" layoutY="91.0" prefHeight="71.0" prefWidth="1057.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Question">
                      <font>
                         <Font name="Nirmala UI Bold" size="30.0" />
                      </font>
@@ -22,11 +22,6 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="addQuestionButton" layoutX="23.0" layoutY="118.0" mnemonicParsing="false" onAction="#addAQuestion" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add A Question">
-                     <font>
-                        <Font name="Nirmala UI Bold" size="18.0" />
-                     </font>
-                  </Button>
                   <AnchorPane layoutX="23.0" layoutY="190.0" prefHeight="741.0" prefWidth="1057.0" style="-fx-background-color: #505050; -fx-background-radius: 10px; -fx-border-radius: 10px;">
                      <children>
                         <TextField alignment="CENTER" editable="false" prefHeight="71.0" prefWidth="1057.0" style="-fx-background-color: grey; -fx-border-color: grey; -fx-background-radius: 10px 10px 0px 0px; -fx-border-radius: 10px 10px 0px 0px; -fx-highlight-fill: null; -fx-highlight-text-fill: null;" text="Answers">
@@ -43,23 +38,26 @@
                               <AnchorPane fx:id="answerContentAnchor" layoutX="84.0" layoutY="14.0" prefHeight="646.0" prefWidth="959.0" style="-fx-background-color: #505050; -fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;" />
                            </children>
                         </AnchorPane>
+                        <Button fx:id="addAnswerButton" layoutX="971.0" minWidth="31.0" mnemonicParsing="false" onAction="#addAnAnswer" prefHeight="71.0" prefWidth="86.0" style="-fx-background-color: #696969; -fx-background-radius: 0px 10px 0px 0px; -fx-border-color: grey; -fx-border-radius: 0px 10px 0px 0px;" text="+" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="removeAnswerButton" minWidth="31.0" mnemonicParsing="false" onAction="#removeAnswers" prefHeight="71.0" prefWidth="86.0" style="-fx-background-color: #696969; -fx-background-radius: 10px 0px 0px 0px; -fx-border-color: grey; -fx-border-radius: 10px 0px 0px 0px;" text="-" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="30.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="addAnswerButton" layoutX="438.0" layoutY="118.0" mnemonicParsing="false" onAction="#addAnAnswer" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Add An Answer">
+                  <TextField fx:id="testNameField" layoutX="23.0" layoutY="19.0" prefHeight="39.0" prefWidth="1057.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Test">
                      <font>
-                        <Font name="Nirmala UI Bold" size="18.0" />
+                        <Font name="Nirmala UI Bold" size="24.0" />
                      </font>
-                  </Button>
-                  <Button fx:id="removeAnswerButton" layoutX="627.0" layoutY="118.0" mnemonicParsing="false" onAction="#removeAnswers" prefHeight="49.0" prefWidth="170.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Remove Answers">
-                     <font>
-                        <Font name="Nirmala UI Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="removeQuestionButton" layoutX="214.0" layoutY="118.0" mnemonicParsing="false" onAction="#removeAQuestion" prefHeight="49.0" prefWidth="204.0" style="-fx-background-color: #505050; -fx-background-radius: 10px;" text="Remove A Question">
-                     <font>
-                        <Font name="Nirmala UI Bold" size="18.0" />
-                     </font>
-                  </Button>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
                </children>
             </AnchorPane>
             <Button layoutX="14.0" layoutY="885.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="71.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #505050;" text="Exit">
@@ -86,6 +84,16 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </TextField>
+                              <Button fx:id="addTestButton" layoutX="209.0" minWidth="31.0" mnemonicParsing="false" onAction="#addATest" prefHeight="39.0" prefWidth="54.0" style="-fx-background-color: #696969; -fx-background-radius: 0px 10px 0px 0px; -fx-border-color: grey; -fx-border-radius: 0px 10px 0px 0px;" text="+" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="removeTestButton1" minWidth="31.0" mnemonicParsing="false" onAction="#removeATest" prefHeight="39.0" prefWidth="54.0" style="-fx-background-color: #696969; -fx-background-radius: 10px 0px 0px 0px; -fx-border-color: grey; -fx-border-radius: 10px 0px 0px 0px;" text="-" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="testSelectionAnchor" layoutY="40.0" prefHeight="280.0" prefWidth="263.0" />
@@ -103,6 +111,16 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </TextField>
+                              <Button fx:id="addQuestionButton" layoutX="209.0" minWidth="31.0" mnemonicParsing="false" onAction="#addAQuestion" prefHeight="39.0" prefWidth="54.0" style="-fx-background-color: #696969; -fx-background-radius: 0px 10px 0px 0px; -fx-border-color: grey; -fx-border-radius: 0px 10px 0px 0px;" text="+" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="removeQuestionButton" minWidth="31.0" mnemonicParsing="false" onAction="#removeAQuestion" prefHeight="39.0" prefWidth="54.0" style="-fx-background-color: #696969; -fx-background-radius: 10px 0px 0px 0px; -fx-border-color: grey; -fx-border-radius: 10px 0px 0px 0px;" text="-" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="questionSelectionAnchor" layoutY="40.0" prefHeight="487.0" prefWidth="263.0" />

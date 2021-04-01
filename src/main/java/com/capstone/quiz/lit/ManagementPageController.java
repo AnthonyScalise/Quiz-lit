@@ -1,6 +1,5 @@
 package com.capstone.quiz.lit;
 
-import com.github.cliftonlabs.json_simple.JsonObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.beans.value.ChangeListener;
@@ -20,6 +19,7 @@ import javafx.scene.paint.Color;
 
 
 public class ManagementPageController {
+    @FXML private TextField testNameField;
     @FXML private TextField questionField;
     @FXML private AnchorPane testSelectionAnchor;
     @FXML private AnchorPane questionSelectionAnchor;
@@ -51,6 +51,7 @@ public class ManagementPageController {
     private ArrayList<AnswerInteractionEventHandler> selectedAnswerEventHandlers = new ArrayList<>();
     
     private ChangeListener<String> questionChange;
+    private ChangeListener<String> testNameChange;
     
     public abstract class AnswerInteractionEventHandler implements EventHandler<Event> {
         private String text;
@@ -106,6 +107,7 @@ public class ManagementPageController {
     private void refreshInterface(int testSelectionNum, int questionSelectionNum) {
         clearAnswerSelectionListeners();
         removeQuestionListener();
+        removeTestNameListener();
         testItems = FXCollections.observableArrayList();
         questionItems = FXCollections.observableArrayList();
         testList = new ListView();
@@ -117,6 +119,7 @@ public class ManagementPageController {
         startInterface();
         testList.getSelectionModel().select(testSelectionNum);
         questionList.getSelectionModel().select(questionSelectionNum);
+        
     }
     
     private void refreshInterface() {
@@ -129,12 +132,18 @@ public class ManagementPageController {
         testList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             clearAnswerSelectionListeners();
             removeQuestionListener();
+            removeTestNameListener();
             //System.out.println("!SWITCHING TO DIFFERENT TEST!");
             //System.out.println(selectedAnswerEventHandlers);
             questionItems.clear();
             int testNum = testList.getSelectionModel().getSelectedIndex();
+            //testNameField.setText(App.getTest(testNum).getName());
+            bindTestNameChangeListener(testNum);
             for(int i=1; i<=App.getTest(testNum).getQuestionAmmount(); i++) {
-                questionItems.add("Question "+i);
+                questionItems.add("Q"+i+")   "+App.getTest(testNum).getQuestion(i-1));
+            }
+            if(App.getTest(testNum).getQuestionAmmount() > 0) {
+                questionList.getSelectionModel().select(0);
             }
         });
     }
@@ -152,7 +161,7 @@ public class ManagementPageController {
             int questionNum = questionList.getSelectionModel().getSelectedIndex();
             if(testNum >= 0 && questionNum >= 0) {
                 removeQuestionListener();
-                bindQuestionChageListener(testNum, questionNum);
+                bindQuestionChangeListener(testNum, questionNum);
                 for(int i=0; i<App.getTest(testNum).getAnswers(questionNum).length; i++) {
                     String answerText = App.getTest(testNum).getAnswers(questionNum)[i];
                     answerContentItems.add(new TextField());
@@ -172,13 +181,37 @@ public class ManagementPageController {
         });
     }
     
-    private void bindQuestionChageListener(int testNum, int questionNum) {
+    private void bindTestNameChangeListener(int testNum) {
+        testNameField.setText(App.getTest(testNum).getName());
+        ChangeListener<String> listener = new ChangeListener<String>(){ 
+            @Override
+                public void changed(ObservableValue<? extends String> observableName, String oldValueName, String newValueName) {
+                    if(!newValueName.equals(App.getTest(testNum).getName())) {
+                        App.getTest(testNum).setName(newValueName);
+                        refreshInterface(testNum, questionList.getSelectionModel().getSelectedIndex());
+                        changes(true);
+                    }
+                }
+        };
+        testNameChange = listener;
+        testNameField.textProperty().addListener(testNameChange);
+    }
+    
+    private void removeTestNameListener() {
+        if(testNameChange != null) {
+            testNameField.textProperty().removeListener(testNameChange);
+            testNameField.clear();
+        }
+    }
+    
+    private void bindQuestionChangeListener(int testNum, int questionNum) {
         questionField.setText(App.getTest(testNum).getQuestion(questionNum));
         ChangeListener<String> listener = new ChangeListener<String>(){ 
             @Override
                 public void changed(ObservableValue<? extends String> observableQuestion, String oldValueQuestion, String newValueQuestion) {
                     if(!newValueQuestion.equals(App.getTest(testNum).getQuestion(questionNum))) {
                         App.getTest(testNum).setQuestion(questionNum, newValueQuestion);
+                        refreshInterface(testNum, questionNum);
                         changes(true);
                     }
                 }
@@ -244,12 +277,19 @@ public class ManagementPageController {
     
     @FXML
     private void addAQuestion() throws IOException {
-        if(testList.getSelectionModel().getSelectedIndex() > -1) {
-            int testNum = testList.getSelectionModel().getSelectedIndex();
-            int questionNum = questionList.getSelectionModel().getSelectedIndex()+1;
-            App.addQuestion(testNum, questionNum);
-            refreshInterface(testNum, questionNum);
-            changes(true);
+        int testNum = testList.getSelectionModel().getSelectedIndex();
+        if(testNum > -1) {
+            int questionNum = questionList.getSelectionModel().getSelectedIndex();
+            if(questionNum > -1) {
+                App.addQuestion(testNum, questionNum+1);
+                refreshInterface(testNum, questionNum+1);
+                changes(true);
+            } else {
+                questionNum = App.getTest(testNum).getQuestionAmmount();
+                App.addQuestion(testNum, questionNum);
+                refreshInterface(testNum, questionNum);
+                changes(true);
+            }
         }
     }
     
@@ -275,14 +315,14 @@ public class ManagementPageController {
     //TODO doesnt save the addition properly 
     @FXML
     private void addAnAnswer() throws IOException {
-        if(questionList.getSelectionModel().getSelectedIndex() > -1) {
+        int questionNum = questionList.getSelectionModel().getSelectedIndex();
+        if(questionNum > -1) {
+            int answerNum = answerContentItems.size();
+            int testNum = testList.getSelectionModel().getSelectedIndex();
             for(int i=0; i<selectedAnswerEventHandlers.size(); i++) {
                 answerNumberItems.get(i).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(i));
             }
             selectedAnswerEventHandlers.clear();
-            int testNum = testList.getSelectionModel().getSelectedIndex();
-            int questionNum = questionList.getSelectionModel().getSelectedIndex();
-            int answerNum = answerContentItems.size();
             App.getTest(testNum).addAnswer(questionNum, answerNum, "");
             answerNumberItems.add(new TextField());
             answerNumberItems.get(answerNum).setText("Answer "+(answerNum+1));
@@ -331,6 +371,34 @@ public class ManagementPageController {
         }
         //System.out.println(answerContentItems);
     }
+    
+    @FXML
+    private void addATest() throws IOException{
+        int testNum = testList.getSelectionModel().getSelectedIndex();
+        if(testNum > -1) {
+            App.addTest(testNum+1);
+            refreshInterface(testNum+1, 0);
+        } else {
+            int testAmmount = App.getTestAmmount();
+            App.addTest(testAmmount);
+            refreshInterface(testAmmount, 0);
+        }
+    }
+    
+    @FXML
+    private void removeATest() throws IOException{
+        int testNum = testList.getSelectionModel().getSelectedIndex();
+        if(testNum > -1) {
+            App.removeTest(testNum);
+            if(testNum > 0) {
+                refreshInterface(testNum-1, 0);
+            } else {
+                refreshInterface(0, 0);
+            }
+            changes(true);
+        }
+    }
+    
         
     @FXML
     private void saveData() throws IOException {

@@ -109,6 +109,18 @@ public class App extends Application {
     public static void removeQuestion(int testNum, int questionNum) {
         localTestList.get(testNum).removeQuestion(questionNum);
     }
+    
+    public static void addTest(int testNum) {
+        ArrayList<QuestionProfile> questionList = new ArrayList<QuestionProfile>();
+        questionList.add(new QuestionProfile(0, "New Question", 0, new ArrayList<String>(), 0));
+        localTestList.add(testNum, new TestProfile("New Test", 0, 1, questionList));
+        testAmmount++;
+    }
+    
+    public static void removeTest(int testNum) {
+        localTestList.remove(testNum);
+        testAmmount--;
+    }
 
     public static void main(String[] args) {    
         getLocalData();
