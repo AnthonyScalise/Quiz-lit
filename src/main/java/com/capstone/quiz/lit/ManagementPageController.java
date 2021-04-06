@@ -76,9 +76,8 @@ public class ManagementPageController {
     }
     
     private void startInterface() {
-        for(int i=0; i<App.getTestAmmount(); i++) {
+        for(int i=0; i<App.getTestAmmount(); i++)
             testItems.add(App.getTest(i).getName());
-        }
         testList.setItems(testItems);  
         testList.setPrefWidth(263);
         testList.setPrefHeight(280);
@@ -104,6 +103,7 @@ public class ManagementPageController {
         refreshAnswerList(); 
     }
     
+    
     private void refreshInterface(int testSelectionNum, int questionSelectionNum) {
         clearAnswerSelectionListeners();
         removeQuestionListener();
@@ -122,37 +122,33 @@ public class ManagementPageController {
         
     }
     
+    
     private void refreshInterface() {
         int testSelectionNum = testList.getSelectionModel().getSelectedIndex();
         int questionSelectionNum = questionList.getSelectionModel().getSelectedIndex();
         refreshInterface(testSelectionNum, questionSelectionNum);
     }
     
+    
     private void refreshQuestionList() {
         testList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             clearAnswerSelectionListeners();
             removeQuestionListener();
             removeTestNameListener();
-            //System.out.println("!SWITCHING TO DIFFERENT TEST!");
-            //System.out.println(selectedAnswerEventHandlers);
             questionItems.clear();
             int testNum = testList.getSelectionModel().getSelectedIndex();
-            //testNameField.setText(App.getTest(testNum).getName());
             bindTestNameChangeListener(testNum);
-            for(int i=1; i<=App.getTest(testNum).getQuestionAmmount(); i++) {
+            for(int i=1; i<=App.getTest(testNum).getQuestionAmmount(); i++)
                 questionItems.add("Q"+i+")   "+App.getTest(testNum).getQuestion(i-1));
-            }
-            if(App.getTest(testNum).getQuestionAmmount() > 0) {
+            if(App.getTest(testNum).getQuestionAmmount() > 0)
                 questionList.getSelectionModel().select(0);
-            }
         });
     }
+    
     
     private void refreshAnswerList() {
         questionList.getSelectionModel().selectedItemProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             clearAnswerSelectionListeners();
-            //System.out.println("!SWITCHING TO DIFFERENT QUESTION!");
-            //System.out.println(selectedAnswerEventHandlers);
             answerContentBox.getChildren().clear();
             answerNumberBox.getChildren().clear();
             answerContentItems.clear();
@@ -181,6 +177,7 @@ public class ManagementPageController {
         });
     }
     
+    
     private void bindTestNameChangeListener(int testNum) {
         testNameField.setText(App.getTest(testNum).getName());
         ChangeListener<String> listener = new ChangeListener<String>(){ 
@@ -197,12 +194,14 @@ public class ManagementPageController {
         testNameField.textProperty().addListener(testNameChange);
     }
     
+    
     private void removeTestNameListener() {
         if(testNameChange != null) {
             testNameField.textProperty().removeListener(testNameChange);
             testNameField.clear();
         }
     }
+    
     
     private void bindQuestionChangeListener(int testNum, int questionNum) {
         questionField.setText(App.getTest(testNum).getQuestion(questionNum));
@@ -220,12 +219,14 @@ public class ManagementPageController {
         questionField.textProperty().addListener(questionChange);
     }
     
+    
     private void removeQuestionListener() {
         if(questionChange != null) {
             questionField.textProperty().removeListener(questionChange);
             questionField.clear();
         }
     }
+    
     
     private void bindAnswerChangeListener(int testNum, int questionNum, int answerNum) {
         answerContentItems.get(answerNum).textProperty().addListener((ObservableValue<? extends String> observableAns, String oldValueAns, String newValueAns) -> {
@@ -234,6 +235,7 @@ public class ManagementPageController {
         });
     }
     
+    
     private void bindAnswerSelectionListener(int ansNum) {
         selectedAnswerEventHandlers.add(new AnswerInteractionEventHandler(answerNumberItems.get(ansNum).getText(), ansNum) {
             @Override
@@ -241,24 +243,29 @@ public class ManagementPageController {
                 String currentColorHex = colorToHex((Color)answerNumberItems.get(getNum()).getBackground().getFills().get(0).getFill());
                 if(currentColorHex.equals("808080")) {
                     answerNumberItems.get(getNum()).setStyle("-fx-background-color: #303030; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-text-fill: white;-fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
-                    //System.out.println(getText() + " Selected");
                     selectedAnswers.add(answerNumberItems.get(getNum()));
                 } else {
                     answerNumberItems.get(getNum()).setStyle("-fx-background-color: #808080; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
-                    //System.out.println(getText() + " Unselected");
                     selectedAnswers.remove(answerNumberItems.get(getNum()));
                 }
-                    //System.out.println("Selected Answers: " + selectedAnswers.toString());
-                }
             }
-        );
+        });
         answerNumberItems.get(ansNum).addEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(ansNum));
     }
+    
     
     private void removeAnswerSelectionListener(int ansNum) {
         answerNumberItems.get(ansNum).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(ansNum));
         selectedAnswerEventHandlers.remove(ansNum);
     }
+    
+    
+    private void clearSelectedAnswers() {
+        for(TextField ans : answerNumberItems)
+            ans.setStyle("-fx-background-color: #808080; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
+        selectedAnswers.clear();
+    }
+    
     
     private void clearAnswerSelectionListeners() {
         if(selectedAnswerEventHandlers.size() > 0) {
@@ -270,10 +277,12 @@ public class ManagementPageController {
         }
     }
     
+    
     private void changes(boolean status) {
         allChangesSaved = !status;
         saveButton.setDisable(!status);
     }
+    
     
     @FXML
     private void addAQuestion() throws IOException {
@@ -301,39 +310,47 @@ public class ManagementPageController {
         if(testNum > -1) {
             if(questionNum > -1) {
                 App.removeQuestion(testNum, questionNum);
-                if(questionNum == 0) {
+                if(questionNum == 0)
                     refreshInterface(testNum, questionNum);
-                } else {
+                else
                     refreshInterface(testNum, questionNum-1);
-                }
                 changes(true);
             }
         }
     }
     
     
-    //TODO doesnt save the addition properly 
     @FXML
     private void addAnAnswer() throws IOException {
         int questionNum = questionList.getSelectionModel().getSelectedIndex();
         if(questionNum > -1) {
             int answerNum = answerContentItems.size();
+            if(selectedAnswers.size() > 0) {
+                int maxIndex = -1;
+                for(TextField ans : selectedAnswers) {
+                    int currentIndex = answerNumberItems.indexOf(ans);
+                    if(currentIndex > maxIndex)
+                        maxIndex = currentIndex;
+                }
+                answerNum = maxIndex+1;
+            }
             int testNum = testList.getSelectionModel().getSelectedIndex();
             for(int i=0; i<selectedAnswerEventHandlers.size(); i++) {
                 answerNumberItems.get(i).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(i));
             }
             selectedAnswerEventHandlers.clear();
             App.getTest(testNum).addAnswer(questionNum, answerNum, "");
-            answerNumberItems.add(new TextField());
+            answerNumberItems.add(answerNum, new TextField());
             answerNumberItems.get(answerNum).setText("Answer "+(answerNum+1));
             answerNumberItems.get(answerNum).setEditable(false);
             answerNumberItems.get(answerNum).setStyle("-fx-background-color: #808080; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
-            answerContentItems.add(new TextField());
+            answerContentItems.add(answerNum, new TextField());
             answerContentItems.get(answerNum).setText("");
             answerContentItems.get(answerNum).setEditable(true);
             answerNumberBox.getChildren().add(answerNum, answerNumberItems.get(answerNum));
             answerContentBox.getChildren().add(answerNum, answerContentItems.get(answerNum));
             bindAnswerChangeListener(testNum, questionNum, answerNum);
+            clearSelectedAnswers();
             for(int i=0; i<answerNumberItems.size(); i++) {
                 answerNumberItems.get(i).setText("Answer "+(i+1));
                 answerNumberBox.getChildren().set(i, answerNumberItems.get(i));
@@ -342,6 +359,7 @@ public class ManagementPageController {
             changes(true);
         }
     }
+    
     
     @FXML
     private void removeAnswers() throws IOException {
@@ -359,9 +377,8 @@ public class ManagementPageController {
                 answerContentItems.remove(answerNum);
                 answerNumberBox.getChildren().remove(answerNum);
                 answerContentBox.getChildren().remove(answerNum);
-                //System.out.println("Removed Answer " + answerNum);
             }
-            selectedAnswers.clear();
+            clearSelectedAnswers();
             for(int i=0; i<answerNumberItems.size(); i++) {
                 answerNumberItems.get(i).setText("Answer "+(i+1));
                 answerNumberBox.getChildren().set(i, answerNumberItems.get(i));
@@ -369,8 +386,8 @@ public class ManagementPageController {
             }
             changes(true);
         }
-        //System.out.println(answerContentItems);
     }
+    
     
     @FXML
     private void addATest() throws IOException{
@@ -385,16 +402,16 @@ public class ManagementPageController {
         }
     }
     
+    
     @FXML
     private void removeATest() throws IOException{
         int testNum = testList.getSelectionModel().getSelectedIndex();
         if(testNum > -1) {
             App.removeTest(testNum);
-            if(testNum > 0) {
+            if(testNum > 0)
                 refreshInterface(testNum-1, 0);
-            } else {
+            else
                 refreshInterface(0, 0);
-            }
             changes(true);
         }
     }
@@ -413,7 +430,6 @@ public class ManagementPageController {
         String hex1;
         String hex2;
         hex1 = Integer.toHexString(color.hashCode()).toUpperCase();
-        
         switch(hex1.length()) {
             case 2:
                 hex2 = "000000";
