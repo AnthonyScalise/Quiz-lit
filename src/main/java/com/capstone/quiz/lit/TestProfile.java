@@ -104,6 +104,10 @@ public class TestProfile implements Jsonable {
         this.questionList.add(questionNum, new QuestionProfile(questionNum, "New Question", 0, new ArrayList<>(), 0));
         this.questionAmmount++;
     }
+    
+    public void setCorrectAnswerId(int questionId, int answerId) {
+        this.questionList.get(questionId).setCorrectAnswerId(answerId);
+    }
 
     public int getCorrectAnswerId(int questionId) {
         return this.questionList.get(questionId).getCorrectAnswerId();

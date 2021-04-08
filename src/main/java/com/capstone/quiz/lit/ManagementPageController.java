@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ public class ManagementPageController {
     @FXML private AnchorPane answerNumAnchor;
     @FXML private AnchorPane answerContentAnchor;
     @FXML private Button saveButton;
+    @FXML private Button markCorrectButton;
     
     
     @FXML
@@ -158,13 +160,19 @@ public class ManagementPageController {
             if(testNum >= 0 && questionNum >= 0) {
                 removeQuestionListener();
                 bindQuestionChangeListener(testNum, questionNum);
+                int correctAnsNum = App.getTest(testNum).getCorrectAnswerId(questionNum);
                 for(int i=0; i<App.getTest(testNum).getAnswers(questionNum).length; i++) {
                     String answerText = App.getTest(testNum).getAnswers(questionNum)[i];
                     answerContentItems.add(new TextField());
                     answerContentItems.get(i).setText(answerText);
                     answerContentItems.get(i).setEditable(true);
-                    answerContentItems.get(i).setStyle("-fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
+                    if(i == correctAnsNum) {
+                        answerContentItems.get(i).setStyle("-fx-background-color: gold; -fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
+                    } else {
+                        answerContentItems.get(i).setStyle("-fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
+                    }
                     answerNumberItems.add(new TextField());
+                    answerNumberItems.get(i).setCursor(Cursor.DEFAULT);
                     answerNumberItems.get(i).setText("Answer "+(i+1));
                     answerNumberItems.get(i).setEditable(false);
                     answerNumberItems.get(i).setStyle("-fx-background-color: grey; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
@@ -325,38 +333,44 @@ public class ManagementPageController {
         int questionNum = questionList.getSelectionModel().getSelectedIndex();
         if(questionNum > -1) {
             int answerNum = answerContentItems.size();
-            if(selectedAnswers.size() > 0) {
-                int maxIndex = -1;
-                for(TextField ans : selectedAnswers) {
-                    int currentIndex = answerNumberItems.indexOf(ans);
-                    if(currentIndex > maxIndex)
-                        maxIndex = currentIndex;
+            if(answerNum < 14) {
+                if(selectedAnswers.size() > 0) {
+                    int maxIndex = -1;
+                    for(TextField ans : selectedAnswers) {
+                        int currentIndex = answerNumberItems.indexOf(ans);
+                        if(currentIndex > maxIndex)
+                            maxIndex = currentIndex;
+                    }
+                    answerNum = maxIndex+1;
                 }
-                answerNum = maxIndex+1;
+                int testNum = testList.getSelectionModel().getSelectedIndex();
+                for(int i=0; i<selectedAnswerEventHandlers.size(); i++) {
+                    answerNumberItems.get(i).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(i));
+                }
+                selectedAnswerEventHandlers.clear();
+                App.getTest(testNum).addAnswer(questionNum, answerNum, "");
+                answerNumberItems.add(answerNum, new TextField());
+                answerNumberItems.get(answerNum).setText("Answer "+(answerNum+1));
+                answerNumberItems.get(answerNum).setEditable(false);
+                answerNumberItems.get(answerNum).setStyle("-fx-background-color: #808080; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
+                answerContentItems.add(answerNum, new TextField());
+                answerContentItems.get(answerNum).setText("");
+                answerContentItems.get(answerNum).setEditable(true);
+                answerNumberBox.getChildren().add(answerNum, answerNumberItems.get(answerNum));
+                answerContentBox.getChildren().add(answerNum, answerContentItems.get(answerNum));
+                bindAnswerChangeListener(testNum, questionNum, answerNum);
+                clearSelectedAnswers();
+                for(int i=0; i<answerNumberItems.size(); i++) {
+                    answerNumberItems.get(i).setText("Answer "+(i+1));
+                    answerNumberBox.getChildren().set(i, answerNumberItems.get(i));
+                    bindAnswerSelectionListener(i);
+                }
+                int correctAnswerNum = App.getTest(testNum).getCorrectAnswerId(questionNum);
+                if(correctAnswerNum > answerNum-1) {
+                    App.setCorrectAnswerId(testNum, questionNum, correctAnswerNum+1);
+                }
+                changes(true);
             }
-            int testNum = testList.getSelectionModel().getSelectedIndex();
-            for(int i=0; i<selectedAnswerEventHandlers.size(); i++) {
-                answerNumberItems.get(i).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(i));
-            }
-            selectedAnswerEventHandlers.clear();
-            App.getTest(testNum).addAnswer(questionNum, answerNum, "");
-            answerNumberItems.add(answerNum, new TextField());
-            answerNumberItems.get(answerNum).setText("Answer "+(answerNum+1));
-            answerNumberItems.get(answerNum).setEditable(false);
-            answerNumberItems.get(answerNum).setStyle("-fx-background-color: #808080; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
-            answerContentItems.add(answerNum, new TextField());
-            answerContentItems.get(answerNum).setText("");
-            answerContentItems.get(answerNum).setEditable(true);
-            answerNumberBox.getChildren().add(answerNum, answerNumberItems.get(answerNum));
-            answerContentBox.getChildren().add(answerNum, answerContentItems.get(answerNum));
-            bindAnswerChangeListener(testNum, questionNum, answerNum);
-            clearSelectedAnswers();
-            for(int i=0; i<answerNumberItems.size(); i++) {
-                answerNumberItems.get(i).setText("Answer "+(i+1));
-                answerNumberBox.getChildren().set(i, answerNumberItems.get(i));
-                bindAnswerSelectionListener(i);
-            }
-            changes(true);
         }
     }
     
@@ -372,6 +386,10 @@ public class ManagementPageController {
                 int testNum = testList.getSelectionModel().getSelectedIndex();
                 int questionNum = questionList.getSelectionModel().getSelectedIndex();
                 int answerNum = answerNumberItems.indexOf(field);
+                int correctAnswerNum = App.getTest(testNum).getCorrectAnswerId(questionNum);
+                if(correctAnswerNum > answerNum) {
+                    App.setCorrectAnswerId(testNum, questionNum, correctAnswerNum-1);
+                }
                 App.getTest(testNum).removeAnswer(questionNum, answerNum);
                 answerNumberItems.remove(answerNum);
                 answerContentItems.remove(answerNum);
@@ -423,6 +441,27 @@ public class ManagementPageController {
             App.saveLocalData();
             changes(false);
         }
+    }
+    
+    @FXML
+    private void markCorrect() throws IOException {
+        int testNum = testList.getSelectionModel().getSelectedIndex();
+        int questionNum = questionList.getSelectionModel().getSelectedIndex();
+        //System.out.println("The correct Answer Id was: "+App.getTest(testNum).getCorrectAnswerId(questionNum));
+        if(selectedAnswers.size() > 0) {
+            if(selectedAnswers.size() == 1) {
+                int oldCorrectId = App.getTest(testNum).getCorrectAnswerId(questionNum);
+                int newCorrectId = answerNumberItems.indexOf(selectedAnswers.get(0));
+                answerContentItems.get(oldCorrectId).setStyle("-fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
+                answerContentItems.get(newCorrectId).setStyle("-fx-background-color: gold; -fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
+                App.setCorrectAnswerId(testNum, questionNum, newCorrectId);
+                clearSelectedAnswers();
+                changes(true);
+            } else {
+                System.out.println("Too many selected");
+            }
+        }
+        //System.out.println("The correct Answer Id is now: "+App.getTest(testNum).getCorrectAnswerId(questionNum));
     }
     
     

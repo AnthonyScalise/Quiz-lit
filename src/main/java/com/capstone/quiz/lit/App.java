@@ -110,6 +110,10 @@ public class App extends Application {
         localTestList.get(testNum).removeQuestion(questionNum);
     }
     
+    public static void setCorrectAnswerId(int testNum, int questionNum, int answerId) {
+        localTestList.get(testNum).setCorrectAnswerId(questionNum, answerId);
+    }
+    
     public static void addTest(int testNum) {
         ArrayList<QuestionProfile> questionList = new ArrayList<QuestionProfile>();
         questionList.add(new QuestionProfile(0, "New Question", 0, new ArrayList<String>(), 0));

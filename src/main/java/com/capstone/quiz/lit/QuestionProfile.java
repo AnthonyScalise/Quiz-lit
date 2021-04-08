@@ -87,6 +87,12 @@ public class QuestionProfile {
         this.question.replace(0, this.question.length(), questionData);
     }
     
+    public void setCorrectAnswerId(int index) {
+        if(index < this.answerAmmount) {
+            this.correctAnswerId = index;
+        }
+    }
+    
     public int getCorrectAnswerId() {
         return this.correctAnswerId;
     }
