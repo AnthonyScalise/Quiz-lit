@@ -11,17 +11,17 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1406.0" style="-fx-background-color: grey;">
          <children>
-            <Text layoutX="283.0" layoutY="204.0" stroke="#ffd400" strokeLineCap="BUTT" strokeType="OUTSIDE" text="Testing Program Prototype" textAlignment="CENTER" wrappingWidth="800.13671875">
+            <Text layoutX="283.0" layoutY="206.0" stroke="#ffd400" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="OUTSIDE" text="Quiz-lit" textAlignment="CENTER" wrappingWidth="800.13671875">
                <font>
                   <Font name="Nirmala UI Bold" size="64.0" />
                </font>
             </Text>
-            <Button layoutX="577.0" layoutY="571.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="213.0" style="-fx-background-color: gold;" text="Manage Tests">
+            <Button onAction="#switchToManagementPage" layoutX="577.0" layoutY="572.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="213.0" style="-fx-background-color: gold;" text="Manage Tests">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="primaryButton" layoutX="577.0" layoutY="465.0" onAction="#switchToTestSelectPage" prefHeight="58.0" prefWidth="213.0" style="-fx-background-color: gold;" text="Take A Test">
+            <Button fx:id="primaryButton" layoutX="577.0" layoutY="466.0" onAction="#switchToTestSelectPage" prefHeight="58.0" prefWidth="213.0" style="-fx-background-color: gold;" text="Take A Test">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

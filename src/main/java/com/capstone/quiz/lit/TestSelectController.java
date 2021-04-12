@@ -35,12 +35,11 @@ public class TestSelectController {
         mainAnchorPane.getChildren().add(list);
     }
     
-    
     @FXML
     private void startSelectedTest() throws IOException {
-        mainAnchorPane.getChildren().remove(list);
         int index = list.getSelectionModel().getSelectedIndex();
         if(index > -1) { 
+            mainAnchorPane.getChildren().remove(list);
 //            App.getTest(index).printFirstQuestionDataTest();
             App.currentTest = index;
             App.setRoot("testPage");

@@ -10,20 +10,20 @@ import java.io.Writer;
 import java.util.ArrayList;
 
 public class TestProfile implements Jsonable {
-    private String name = "";
+    private StringBuilder name = new StringBuilder("");
     private int timeLimit = 0;
     private int questionAmmount = 0;
     private List<QuestionProfile> questionList;
     
     public TestProfile(String tName, int tTestTimeLimit, int tQuestionAmmount, List<QuestionProfile> tQuestionList) {
-        this.name = tName;
+        this.name.replace(0, this.name.length(), tName);
         this.timeLimit = tTestTimeLimit;
         this.questionAmmount = tQuestionAmmount;
         this.questionList = tQuestionList;
     }
     
     public TestProfile(JsonObject json) {
-        this.name = json.get("name").toString();
+        this.name.replace(0, this.name.length(), json.get("name").toString());
         this.timeLimit = Integer.parseInt(json.get("timeLimit").toString());
         this.questionAmmount = Integer.parseInt(json.get("questionAmmount").toString());
         ArrayList<QuestionProfile> qList = new ArrayList<>();
@@ -34,12 +34,25 @@ public class TestProfile implements Jsonable {
         this.questionList.addAll(qList);
     }
     
+    public TestProfile(TestProfile test) {
+        this.name.replace(0, this.name.length(), test.getName());
+        this.timeLimit = test.getTimeLimit();
+        this.questionAmmount = test.getQuestionAmmount();
+        for(QuestionProfile question : test.getQuestionList()) {
+            this.questionList.add(new QuestionProfile(question));
+        }
+    }
+    
     public String getName() {
-        return this.name;
+        return this.name.toString();
     }
 
     public int getTimeLimit() {
         return this.timeLimit;
+    }
+    
+    public List<QuestionProfile> getQuestionList() {
+        return this.questionList;
     }
     
     public String getQuestion(int questionId) {
@@ -53,6 +66,48 @@ public class TestProfile implements Jsonable {
     public String[] getAnswers(int questionId) {
         return this.questionList.get(questionId).getAnswers();
     }
+    
+    public void setAnswer(int questionIndex, int answerIndex, String answerData) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.get(questionIndex).setAnswer(answerIndex, answerData);
+        }
+    }
+    
+    public void removeAnswer(int questionIndex, int answerIndex) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.get(questionIndex).removeAnswer(answerIndex);
+        }
+    }
+    
+    public void removeQuestion(int questionIndex) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.remove(questionIndex);
+            this.questionAmmount--;
+        }
+    }
+    
+    public void setName(String newName) {
+        this.name.replace(0, this.name.length(), newName);
+    }
+    
+    public void setQuestion(int questionIndex, String questionData) {
+        if(questionIndex < this.questionAmmount) {
+            this.questionList.get(questionIndex).setQuestion(questionData);
+        }
+    }
+    
+    public void addAnswer(int questionIndex, int answerIndex, String answerData) {
+        this.questionList.get(questionIndex).addAnswer(answerIndex, answerData);
+    }
+    
+    public void addQuestion(int questionNum) {
+        this.questionList.add(questionNum, new QuestionProfile(questionNum, "New Question", 0, new ArrayList<>(), 0));
+        this.questionAmmount++;
+    }
+    
+    public void setCorrectAnswerId(int questionId, int answerId) {
+        this.questionList.get(questionId).setCorrectAnswerId(answerId);
+    }
 
     public int getCorrectAnswerId(int questionId) {
         return this.questionList.get(questionId).getCorrectAnswerId();
@@ -60,7 +115,7 @@ public class TestProfile implements Jsonable {
     
     //Debug log function
     public void printFirstQuestionDataTest() {
-        System.out.println("Name: "+this.name+"\n");
+        System.out.println("Name: "+this.name.toString()+"\n");
         System.out.println("TimeLimit: "+this.timeLimit+"\n");
         System.out.println("CorrectAnswer: "+this.questionList.get(0).getCorrectAnswerId()+"\n");
         System.out.println("QuestionAmmount: "+this.questionAmmount+"\n");
@@ -75,7 +130,7 @@ public class TestProfile implements Jsonable {
     @Override
     public String toJson() {
         JsonObject json = new JsonObject();
-        json.put("name", this.name);
+        json.put("name", this.name.toString());
         json.put("timeLimit", this.timeLimit);
         json.put("questionAmmount", this.questionAmmount);
         JsonArray questionArray = new JsonArray();

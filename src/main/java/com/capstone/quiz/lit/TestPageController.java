@@ -25,6 +25,7 @@ public class TestPageController {
     private List<AnchorPane> ansElements = new ArrayList();
     private List<Circle> ansCircles = new ArrayList();
     private ArrayList<Integer> givenAnswers = new ArrayList<Integer>();
+
     
     @FXML
     protected void initialize() {
