@@ -1,5 +1,4 @@
 package com.capstone.quiz.lit;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.beans.value.ChangeListener;
@@ -19,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 
+
 public class ManagementPageController {
     @FXML private TextField testNameField;
     @FXML private TextField questionField;
@@ -27,7 +27,6 @@ public class ManagementPageController {
     @FXML private AnchorPane answerNumAnchor;
     @FXML private AnchorPane answerContentAnchor;
     @FXML private Button saveButton;
-    @FXML private Button markCorrectButton;
     
     
     @FXML
@@ -35,6 +34,8 @@ public class ManagementPageController {
         App.setRoot("homePage");
         App.reloadLocalData();
     }
+    
+    
     
     private boolean allChangesSaved;
     
@@ -55,16 +56,21 @@ public class ManagementPageController {
     private ChangeListener<String> questionChange;
     private ChangeListener<String> testNameChange;
     
+    
+    
     public abstract class AnswerInteractionEventHandler implements EventHandler<Event> {
         private String text;
         private int num;
+        
         public AnswerInteractionEventHandler(String text, int num) {
             this.text = text;
             this.num = num;
         }
+        
         public String getText() {
             return text;
         }
+        
         public int getNum() {
             return num;
         }
@@ -76,6 +82,7 @@ public class ManagementPageController {
         saveButton.setDisable(true);
         startInterface();
     }
+    
     
     private void startInterface() {
         for(int i=0; i<App.getTestAmmount(); i++)
@@ -121,7 +128,6 @@ public class ManagementPageController {
         startInterface();
         testList.getSelectionModel().select(testSelectionNum);
         questionList.getSelectionModel().select(questionSelectionNum);
-        
     }
     
     
@@ -166,11 +172,10 @@ public class ManagementPageController {
                     answerContentItems.add(new TextField());
                     answerContentItems.get(i).setText(answerText);
                     answerContentItems.get(i).setEditable(true);
-                    if(i == correctAnsNum) {
+                    if(i == correctAnsNum)
                         answerContentItems.get(i).setStyle("-fx-background-color: gold; -fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
-                    } else {
+                    else
                         answerContentItems.get(i).setStyle("-fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;");
-                    }
                     answerNumberItems.add(new TextField());
                     answerNumberItems.get(i).setCursor(Cursor.DEFAULT);
                     answerNumberItems.get(i).setText("Answer "+(i+1));
@@ -269,8 +274,9 @@ public class ManagementPageController {
     
     
     private void clearSelectedAnswers() {
-        for(TextField ans : answerNumberItems)
+        for(TextField ans : answerNumberItems) {
             ans.setStyle("-fx-background-color: #808080; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;");
+        }
         selectedAnswers.clear();
     }
     
@@ -387,9 +393,8 @@ public class ManagementPageController {
                 int questionNum = questionList.getSelectionModel().getSelectedIndex();
                 int answerNum = answerNumberItems.indexOf(field);
                 int correctAnswerNum = App.getTest(testNum).getCorrectAnswerId(questionNum);
-                if(correctAnswerNum > answerNum) {
+                if(correctAnswerNum > answerNum)
                     App.setCorrectAnswerId(testNum, questionNum, correctAnswerNum-1);
-                }
                 App.getTest(testNum).removeAnswer(questionNum, answerNum);
                 answerNumberItems.remove(answerNum);
                 answerContentItems.remove(answerNum);
@@ -447,7 +452,6 @@ public class ManagementPageController {
     private void markCorrect() throws IOException {
         int testNum = testList.getSelectionModel().getSelectedIndex();
         int questionNum = questionList.getSelectionModel().getSelectedIndex();
-        //System.out.println("The correct Answer Id was: "+App.getTest(testNum).getCorrectAnswerId(questionNum));
         if(selectedAnswers.size() > 0) {
             if(selectedAnswers.size() == 1) {
                 int oldCorrectId = App.getTest(testNum).getCorrectAnswerId(questionNum);
@@ -461,7 +465,6 @@ public class ManagementPageController {
                 System.out.println("Too many selected");
             }
         }
-        //System.out.println("The correct Answer Id is now: "+App.getTest(testNum).getCorrectAnswerId(questionNum));
     }
     
     
