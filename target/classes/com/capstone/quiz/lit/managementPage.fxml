@@ -50,7 +50,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <TextField fx:id="testNameField" layoutX="23.0" layoutY="19.0" prefHeight="39.0" prefWidth="1057.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Test">
+                  <TextField fx:id="testNameField" layoutX="23.0" layoutY="19.0" prefHeight="53.0" prefWidth="821.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Test">
                      <font>
                         <Font name="Nirmala UI Bold" size="24.0" />
                      </font>
@@ -63,6 +63,22 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Button>
+                  <TextField fx:id="testTimeField" alignment="CENTER" layoutX="948.0" layoutY="19.0" prefHeight="53.0" prefWidth="132.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;" text="Time">
+                     <font>
+                        <Font name="Nirmala UI Bold" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <TextField alignment="CENTER" editable="false" layoutX="862.0" layoutY="19.0" prefHeight="53.0" prefWidth="86.0" style="-fx-border-color: grey; -fx-background-color: grey; -fx-highlight-fill: null; -fx-highlight-text-fill: null; -fx-background-radius: 10px 0px 0px 10px; -fx-border-radius: 10px 0px 0px 10px;" text="Minutes:">
+                     <font>
+                        <Font name="Nirmala UI Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
                </children>
             </AnchorPane>
             <Button layoutX="14.0" layoutY="885.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="71.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #505050;" text="Exit">
