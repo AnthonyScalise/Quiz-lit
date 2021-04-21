@@ -127,15 +127,18 @@ public class ManagementPageController {
         answerNumAnchor.getChildren().clear();
         startInterface();
         testList.getSelectionModel().select(testSelectionNum);
+        testList.scrollTo(testSelectionNum);
         questionList.getSelectionModel().select(questionSelectionNum);
+        questionList.scrollTo(questionSelectionNum);
     }
     
-    
-    private void refreshInterface() {
-        int testSelectionNum = testList.getSelectionModel().getSelectedIndex();
-        int questionSelectionNum = questionList.getSelectionModel().getSelectedIndex();
-        refreshInterface(testSelectionNum, questionSelectionNum);
-    }
+
+    // TODO: Might depreciate soon if still not being used
+    // private void refreshInterface() {
+    //     int testSelectionNum = testList.getSelectionModel().getSelectedIndex();
+    //     int questionSelectionNum = questionList.getSelectionModel().getSelectedIndex();
+    //     refreshInterface(testSelectionNum, questionSelectionNum);
+    // }
     
     
     private void refreshQuestionList() {
@@ -266,11 +269,12 @@ public class ManagementPageController {
         answerNumberItems.get(ansNum).addEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(ansNum));
     }
     
-    
-    private void removeAnswerSelectionListener(int ansNum) {
-        answerNumberItems.get(ansNum).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(ansNum));
-        selectedAnswerEventHandlers.remove(ansNum);
-    }
+
+    // TODO: Might depreciate soon if still not being used
+    // private void removeAnswerSelectionListener(int ansNum) {
+    //     answerNumberItems.get(ansNum).removeEventHandler(MouseEvent.MOUSE_PRESSED, selectedAnswerEventHandlers.get(ansNum));
+    //     selectedAnswerEventHandlers.remove(ansNum);
+    // }
     
     
     private void clearSelectedAnswers() {

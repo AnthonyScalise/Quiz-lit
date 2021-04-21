@@ -558,122 +558,207 @@
                     "id": 32
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) has come to have more practical influence in recent years.",
+                        "B) has become a celebrated feature of English public life.",
+                        "C) includes all of the richest and most powerfulmen in England.",
+                        "D) has become less exclusionary in its membership in recent years."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Woolf indicates that the procession she describes in the passage",
+                    "answerAmmount": 4,
                     "id": 33
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) Lines 12-17 (\u201CThere... money\u201D)",
+                        "B) Lines 17-19 (\u201CIt... desert\u201D)",
+                        "C) Lines 23-24 (\u201CFor... ourselves\u201D)",
+                        "D) Lines 30-34 (\u201CWe... pulpit\u201D)"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which choice provides the best evidence for the answer to the previous question?",
+                    "answerAmmount": 4,
                     "id": 34
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) controversial and threatening.",
+                        "B) weighty and unanswerable.",
+                        "C) momentous and pressing.",
+                        "D) provocative and mysterious."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Woolf characterizes the questions in lines 53-57(\u201CFor we... men\u201D) as both",
+                    "answerAmmount": 4,
                     "id": 35
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) Lines 46-47 (\u201CWe... questions\u201D)",
+                        "B) Lines 48-49 (\u201CAnd... them\u201D)",
+                        "C) Line 57 (\u201CThe moment... short\u201D)",
+                        "D) Line 62 (\u201CThat... Madam\u201D)"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which choice provides the best evidence for the answer to the previous question?",
+                    "answerAmmount": 4,
                     "id": 36
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) Tolerance",
+                        "B) Knowledge",
+                        "C) Opportunity",
+                        "D) Perspective"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which choice most closely captures the meaning of the figurative \u201Csixpence\u201D referred to in lines 70 and 71?",
+                    "answerAmmount": 4,
                     "id": 37
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) novel the challenge faced by women is.",
+                        "B) pervasive the need for critical reflection is.",
+                        "C) complex the political and social issues of the day are.",
+                        "D) enjoyable the career possibilities for women are."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "The range of places and occasions listed in lines 72-76 (\u201CLet us... funerals\u201D) mainly serves to emphasize how",
+                    "answerAmmount": 4,
                     "id": 38
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) note the technological advances that make space mining possible.",
+                        "B) provide evidence of the growing interest in space mining.",
+                        "C) emphasize the large profits to be made from space mining.",
+                        "D) highlight the diverse ways to carry out space mining operations."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "In lines 9-17, the author of Passage 1 mentions several companies primarily to",
+                    "answerAmmount": 4,
                     "id": 39
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) It could yield materials important to Earth\u2019s economy.",
+                        "B) It could raise the value of some precious metals on Earth.",
+                        "C) It could create unanticipated technological innovations.",
+                        "D) It could change scientists\u2019 understanding of space resources"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "The author of Passage 1 indicates that space mining could have which positive effect?",
+                    "answerAmmount": 4,
                     "id": 40
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) Lines 18-22 (\u201CWithin... lanthanum\u201D)",
+                        "B) Lines 24-28 (\u201CThey... projects\u201D)",
+                        "C) Lines 29-30 (\u201CIn this... commodity\u201D)",
+                        "D) Lines 41-44 (\u201CCompanies... machinery\u201D)"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which choice provides the best evidence for the answer to the previous question?",
+                    "answerAmmount": 4,
                     "id": 41
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) offers.",
+                        "B) claims.",
+                        "C) inquiries.",
+                        "D) desires."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "As used in line 19, \u201Cdemands\u201D most nearly means",
+                    "answerAmmount": 4,
                     "id": 42
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) It continues an extended comparison that begins in the previous paragraph.",
+                        "B) It provides an unexpected answer to a question raised in the previous paragraph.",
+                        "C) It offers hypothetical examples supporting a claim made in the previous paragraph.",
+                        "D) It examines possible outcomes of a proposal put forth in the previous paragraph."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "What function does the discussion of water in lines 35-40 serve in Passage 1?",
+                    "answerAmmount": 4,
                     "id": 43
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) it will end up encouraging humanity\u2019s recklesstreatment of the environment.",
+                        "B) its effects should be thoughtfully consideredbefore it becomes a reality.",
+                        "C) such potential may not include replenishing keyresources that are disappearing on Earth.",
+                        "D) experts disagree about the commercial viability of the discoveries it could yield."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "The central claim of Passage 2 is that space mining has positive potential but",
+                    "answerAmmount": 4,
                     "id": 44
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) maintain.",
+                        "B) grip.",
+                        "C) restrain.",
+                        "D) withstand."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "As used in line 68, \u201Chold\u201D most nearly means",
+                    "answerAmmount": 4,
                     "id": 45
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) Passage 2 refutes the central claim advanced in Passage 1.",
+                        "B) Passage 2 illustrates the phenomenon described in more general terms in Passage 1.",
+                        "C) Passage 2 argues against the practicality of the proposals put forth in Passage 1.",
+                        "D) Passage 2 expresses reservations about developments discussed in Passage 1."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which statement best describes the relationship between the passages?",
+                    "answerAmmount": 4,
                     "id": 46
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) is inconsistent with the sustainable use of space resources.",
+                        "B) will be difficult to bring about in the absence of regulations.",
+                        "C) cannot be attained without technologies that do not yet exist.",
+                        "D) seems certain to affect Earth\u2019s economy in a negative way"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "The author of Passage 2 would most likely respond to the discussion of the future of space mining in lines 18-28, Passage 1, by claiming that such a future",
+                    "answerAmmount": 4,
                     "id": 47
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) Lines 60-63 (\u201CSome... pristine\u201D)",
+                        "B) Lines 74-76 (\u201CThe resources... Earth\u201D)",
+                        "C) Lines 81-83 (\u201COne... avoided\u201D)",
+                        "D) Lines 85-87 (\u201CWithout... insecure\u201D)"
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which choice provides the best evidence for the answer to the previous question?",
+                    "answerAmmount": 4,
                     "id": 48
                 },
                 {
-                    "answerList": [],
+                    "answerList": [
+                        "A) They may be different resources from those that are valuable on Earth.",
+                        "B) They will be valuable only if they can be harvested cheaply.",
+                        "C) They are likely to be primarily precious metals and rare earth elements.",
+                        "D) They may increase in value as those same resources become rare on Earth."
+                    ],
                     "correctAnswerId": 0,
-                    "question": "New Question",
-                    "answerAmmount": 0,
+                    "question": "Which point about the resources that will be highly valued in space is implicit in Passage 1 and explicit inPassage 2?",
+                    "answerAmmount": 4,
                     "id": 49
                 }
             ]
