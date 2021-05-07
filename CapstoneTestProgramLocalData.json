@@ -156,7 +156,7 @@
                         "C) A definitive response to a series of questions",
                         "D) A cheerful recounting of an amusing anecdote"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "Which choice best describes the developmental pattern of the passage?",
                     "answerAmmount": 4,
                     "id": 1
@@ -168,7 +168,7 @@
                         "C) without mediation.",
                         "D) with precision."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "As used in line 1 and line 65, \u201Cdirectly\u201D most nearly means",
                     "answerAmmount": 4,
                     "id": 2
@@ -192,7 +192,7 @@
                         "C) Lines 63-64 (\u201CPlease... proposal\u201D)",
                         "D) Lines 71-72 (\u201CEager... face\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Which choice provides the best evidence for the answer to the previous question?",
                     "answerAmmount": 4,
                     "id": 4
@@ -204,7 +204,7 @@
                         "C) amusement but not mocking disparagement.",
                         "D) respect but not utter deference."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "In the passage, Akira addresses Chie with",
                     "answerAmmount": 4,
                     "id": 5
@@ -216,7 +216,7 @@
                         "C) question a suggestion.",
                         "D) analyze a reaction."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "The main purpose of the first paragraph is to",
                     "answerAmmount": 4,
                     "id": 6
@@ -228,7 +228,7 @@
                         "D) nature.",
                         "C) structure."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "As used in line 2, \u201Cform\u201D most nearly means",
                     "answerAmmount": 4,
                     "id": 7
@@ -240,7 +240,7 @@
                         "C) He has been offered an attractive job in another country.",
                         "D) He knows that Chie is unaware of his feelings  for Naomi."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Why does Akira say his meeting with Chie is\u201Ca matter of urgency\u201D (line 32)?",
                     "answerAmmount": 4,
                     "id": 8
@@ -252,7 +252,7 @@
                         "C) Lines 58-59 (\u201CDepending... Japan\u201D)",
                         "D) Lines 72-73 (\u201CI see... you\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "Which choice provides the best evidence for the answer to the previous question?",
                     "answerAmmount": 4,
                     "id": 9
@@ -276,7 +276,7 @@
                         "C) apprehensive.",
                         "D) supportive."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "In line 10, the word \u201Cambivalent\u201D most nearly means",
                     "answerAmmount": 4,
                     "id": 11
@@ -288,7 +288,7 @@
                         "C) requires the gift-recipient to reciprocate.",
                         "D) can serve to strengthen a relationship."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "The authors indicate that people value gift-giving because they feel it",
                     "answerAmmount": 4,
                     "id": 12
@@ -324,7 +324,7 @@
                         "C) incorrect.",
                         "D) substantiated"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "The passage indicates that the assumption made by gift-givers in lines 41-44 may be",
                     "answerAmmount": 4,
                     "id": 14
@@ -336,7 +336,7 @@
                         "C) Lines 63-65 (\u201CAs... consideration\u201D)",
                         "D) Lines 75-78 (\u201CIn... relations\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Which choice provides the best evidence for the answer to the previous question?",
                     "answerAmmount": 4,
                     "id": 15
@@ -348,7 +348,7 @@
                         "C) exchange.",
                         "D) communicate."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "As it is used in line 54, \u201Cconvey\u201D most nearly means",
                     "answerAmmount": 4,
                     "id": 16
@@ -372,7 +372,7 @@
                         "C) their own desires for the gifts they purchase.",
                         "D) their relationship with the gift-recipients."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "The graph following the passage offers evidence that gift-givers base their predictions of how much a gift will be appreciated on",
                     "answerAmmount": 4,
                     "id": 18
@@ -396,7 +396,7 @@
                         "C) a chain in a DNA molecule consists entirely of phosphate groups or of sugars.",
                         "D) nitrogenous bases form the main structural unit of DNA."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "The authors use the word \u201Cbackbone\u201D in lines 3 and 39 to indicate that",
                     "answerAmmount": 4,
                     "id": 20
@@ -408,7 +408,7 @@
                         "C) Lines 23-25 (\u201CThe bases... other\u201D)",
                         "D) Lines 27-29 (\u201COne member... chains\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "A student claims that nitrogenous bases pair randomly with one another. Which of the following statements in the passage contradicts the student\u2019s claim?",
                     "answerAmmount": 4,
                     "id": 21
@@ -420,7 +420,7 @@
                         "C) The X-ray evidence",
                         "D) DNA consisting of two chains"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "In the second paragraph (lines 12-19), what do the authors claim to be a feature of biological interest?",
                     "answerAmmount": 4,
                     "id": 22
@@ -432,7 +432,7 @@
                         "C) provide support for the authors\u2019 claim about the number of chains in a molecule of DNA.",
                         "D) confirm the relationship between the density of DNA and the known chemical formula of DNA."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "The authors\u2019 main purpose of including the information about X-ray evidence and density is to",
                     "answerAmmount": 4,
                     "id": 24
@@ -444,7 +444,7 @@
                         "C) of pyrimidines would be larger than a pair of purines.",
                         "D) consisting of a purine and a pyrimidine would be larger than a pair of pyrimidines."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "Based on the passage, the authors\u2019 statement \u201CIf a pair consisted of two purines, for example, there would not be room for it\u201D (lines 29-30) implies that a pair",
                     "answerAmmount": 4,
                     "id": 25
@@ -456,7 +456,7 @@
                         "C) support the claim that the phosphate-sugar backbone of the authors\u2019 model is completely regular.",
                         "D) emphasize how one chain of DNA may serve as a template to be copied during DNA replication."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "The authors\u2019 use of the words \u201Cexact,\u201D \u201Cspecific,\u201D and\u201Ccomplement\u201D in lines 47-49 in the final paragraph functions mainly to",
                     "answerAmmount": 4,
                     "id": 26
@@ -468,7 +468,7 @@
                         "C) 18.7% and 31.3%",
                         "D) 31.3% and 32.9%"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Based on the table and passage, which choice gives the correct percentages of the purines in yeast DNA?",
                     "answerAmmount": 4,
                     "id": 27
@@ -504,7 +504,7 @@
                         "C) It varies; \u201CAdenine... thymine\u201D (lines 36-38)",
                         "D) It varies; \u201CIt follows... information\u201D(lines 41-45)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "Based on the table, is the percentage of adenine in each organism\u2019s DNA the same or does it vary, and which statement made by the authors is most consistent with that data?",
                     "answerAmmount": 4,
                     "id": 30
@@ -516,7 +516,7 @@
                         "C) highlight the severity of social divisions.",
                         "D) question the feasibility of an undertaking."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "The main purpose of the passage is to",
                     "answerAmmount": 4,
                     "id": 31
@@ -540,19 +540,19 @@
                         "C) establish a sense of solidarity among a group of people.",
                         "D) reinforce the need for respect among a group of people."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Woolf uses the word \u201Cwe\u201D throughout the passagemainly to",
                     "answerAmmount": 4,
                     "id": 31
                 },
                 {
                     "answerList": [
-                        "",
-                        "",
-                        "",
-                        ""
+                        "is conductive to a mood of fanciful reflection",
+                        "provides a good view of the precession of the sons of educated men",
+                        "is within sight of historic episodes to which she alludes",
+                        "is symbolic of the legacy of past and present sons of educated men"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "According to the passage, Woolf chooses the setting of the bridge because it",
                     "answerAmmount": 4,
                     "id": 32
@@ -564,7 +564,7 @@
                         "C) includes all of the richest and most powerfulmen in England.",
                         "D) has become less exclusionary in its membership in recent years."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "Woolf indicates that the procession she describes in the passage",
                     "answerAmmount": 4,
                     "id": 33
@@ -576,7 +576,7 @@
                         "C) Lines 23-24 (\u201CFor... ourselves\u201D)",
                         "D) Lines 30-34 (\u201CWe... pulpit\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Which choice provides the best evidence for the answer to the previous question?",
                     "answerAmmount": 4,
                     "id": 34
@@ -588,7 +588,7 @@
                         "C) momentous and pressing.",
                         "D) provocative and mysterious."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Woolf characterizes the questions in lines 53-57(\u201CFor we... men\u201D) as both",
                     "answerAmmount": 4,
                     "id": 35
@@ -600,7 +600,7 @@
                         "C) Line 57 (\u201CThe moment... short\u201D)",
                         "D) Line 62 (\u201CThat... Madam\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "Which choice provides the best evidence for the answer to the previous question?",
                     "answerAmmount": 4,
                     "id": 36
@@ -612,7 +612,7 @@
                         "C) Opportunity",
                         "D) Perspective"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "Which choice most closely captures the meaning of the figurative \u201Csixpence\u201D referred to in lines 70 and 71?",
                     "answerAmmount": 4,
                     "id": 37
@@ -624,7 +624,7 @@
                         "C) complex the political and social issues of the day are.",
                         "D) enjoyable the career possibilities for women are."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "The range of places and occasions listed in lines 72-76 (\u201CLet us... funerals\u201D) mainly serves to emphasize how",
                     "answerAmmount": 4,
                     "id": 38
@@ -636,7 +636,7 @@
                         "C) emphasize the large profits to be made from space mining.",
                         "D) highlight the diverse ways to carry out space mining operations."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "In lines 9-17, the author of Passage 1 mentions several companies primarily to",
                     "answerAmmount": 4,
                     "id": 39
@@ -672,7 +672,7 @@
                         "C) inquiries.",
                         "D) desires."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "As used in line 19, \u201Cdemands\u201D most nearly means",
                     "answerAmmount": 4,
                     "id": 42
@@ -684,7 +684,7 @@
                         "C) It offers hypothetical examples supporting a claim made in the previous paragraph.",
                         "D) It examines possible outcomes of a proposal put forth in the previous paragraph."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 2,
                     "question": "What function does the discussion of water in lines 35-40 serve in Passage 1?",
                     "answerAmmount": 4,
                     "id": 43
@@ -696,7 +696,7 @@
                         "C) such potential may not include replenishing keyresources that are disappearing on Earth.",
                         "D) experts disagree about the commercial viability of the discoveries it could yield."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "The central claim of Passage 2 is that space mining has positive potential but",
                     "answerAmmount": 4,
                     "id": 44
@@ -720,7 +720,7 @@
                         "C) Passage 2 argues against the practicality of the proposals put forth in Passage 1.",
                         "D) Passage 2 expresses reservations about developments discussed in Passage 1."
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "Which statement best describes the relationship between the passages?",
                     "answerAmmount": 4,
                     "id": 46
@@ -732,7 +732,7 @@
                         "C) cannot be attained without technologies that do not yet exist.",
                         "D) seems certain to affect Earth\u2019s economy in a negative way"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 1,
                     "question": "The author of Passage 2 would most likely respond to the discussion of the future of space mining in lines 18-28, Passage 1, by claiming that such a future",
                     "answerAmmount": 4,
                     "id": 47
@@ -744,7 +744,7 @@
                         "C) Lines 81-83 (\u201COne... avoided\u201D)",
                         "D) Lines 85-87 (\u201CWithout... insecure\u201D)"
                     ],
-                    "correctAnswerId": 0,
+                    "correctAnswerId": 3,
                     "question": "Which choice provides the best evidence for the answer to the previous question?",
                     "answerAmmount": 4,
                     "id": 48
