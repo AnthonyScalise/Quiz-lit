@@ -23,6 +23,7 @@ public class App extends Application {
     private static int testAmmount;
     public static int currentTest = 0;
     public static List<Boolean> currentTestScore;
+    private static Stage appStage;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,6 +31,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        appStage = stage;
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -40,10 +42,15 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+    public static void addTestToLocalTestList(JsonObject test) {
+        localTestList.add(new TestProfile(test));
+        testAmmount++;
+    }
     
     private static void getLocalData() {
         try {
-            JsonObject jsonDataObject = (JsonObject) Jsoner.deserialize(new String(Files.readAllBytes(Paths.get("CapstoneTestProgramLocalData.json"))));
+            JsonObject jsonDataObject = (JsonObject) Jsoner.deserialize(new String(Files.readAllBytes(Paths.get("LocalData.json"))));
             testAmmount = Integer.parseInt(jsonDataObject.get("testAmmount").toString());
             ArrayList<TestProfile> tList = new ArrayList<>();
             for(int i=0; i<testAmmount; i++) {
@@ -64,7 +71,7 @@ public class App extends Application {
             testArray.add(testList.get(i));
         }
         saveObject.put("localTestList", testArray); 
-        try (FileWriter fileWriter = new FileWriter("CapstoneTestProgramLocalData.json")) {
+        try (FileWriter fileWriter = new FileWriter("LocalData.json")) {
             Jsoner.serialize(saveObject, fileWriter);
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -124,6 +131,10 @@ public class App extends Application {
     public static void removeTest(int testNum) {
         localTestList.remove(testNum);
         testAmmount--;
+    }
+
+    public static Stage getAppStage() {
+        return appStage;
     }
 
     public static void main(String[] args) {    

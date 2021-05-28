@@ -1,6 +1,11 @@
 package com.capstone.quiz.lit;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -16,7 +21,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-
+import javafx.stage.FileChooser;
+import java.io.FileWriter;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 
 public class ManagementPageController {
@@ -27,7 +37,9 @@ public class ManagementPageController {
     @FXML private AnchorPane answerNumAnchor;
     @FXML private AnchorPane answerContentAnchor;
     @FXML private Button saveButton;
-    
+    @FXML private Button downloadTestButton;
+    @FXML private Button uploadTestButton;
+
     
     @FXML
     private void switchToHomePage() throws IOException {
@@ -56,6 +68,8 @@ public class ManagementPageController {
     private ChangeListener<String> questionChange;
     private ChangeListener<String> testNameChange;
     
+//    private Desktop desktop = Desktop.getDesktop();
+    private FileChooser fileSelector = new FileChooser();
     
     
     public abstract class AnswerInteractionEventHandler implements EventHandler<Event> {
@@ -133,12 +147,11 @@ public class ManagementPageController {
     }
     
 
-    // TODO: Might depreciate soon if still not being used
-    // private void refreshInterface() {
-    //     int testSelectionNum = testList.getSelectionModel().getSelectedIndex();
-    //     int questionSelectionNum = questionList.getSelectionModel().getSelectedIndex();
-    //     refreshInterface(testSelectionNum, questionSelectionNum);
-    // }
+    private void refreshInterface() {
+        int testSelectionNum = testList.getSelectionModel().getSelectedIndex();
+        int questionSelectionNum = questionList.getSelectionModel().getSelectedIndex();
+        refreshInterface(testSelectionNum, questionSelectionNum);
+    }
     
     
     private void refreshQuestionList() {
@@ -452,6 +465,7 @@ public class ManagementPageController {
         }
     }
     
+
     @FXML
     private void markCorrect() throws IOException {
         int testNum = testList.getSelectionModel().getSelectedIndex();
@@ -470,8 +484,38 @@ public class ManagementPageController {
             }
         }
     }
+
+
+    @FXML
+    private void downloadTest() throws IOException {
+        int testNum = testList.getSelectionModel().getSelectedIndex();
+        if (testNum > -1) {
+            File file = fileSelector.showSaveDialog(App.getAppStage());
+            try (FileWriter fileWriter = new FileWriter(file.getAbsolutePath())) {
+                Jsoner.serialize(App.getTest(testNum), fileWriter);
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
     
-    
+
+    @FXML
+    private void uploadTest() throws IOException {
+        File file = fileSelector.showOpenDialog(App.getAppStage());
+        if (file != null) {
+            try {
+                JsonObject importedTest = (JsonObject) Jsoner.deserialize(new String(Files.readAllBytes(Paths.get(file.getAbsolutePath()))));
+                App.addTestToLocalTestList(importedTest);
+                refreshInterface();
+                changes(true);
+            } catch (Exception ex) {    
+                ex.printStackTrace();
+            }
+        }
+    }
+
+
     private String colorToHex(Color color) {
         String hex1;
         String hex2;

@@ -58,11 +58,6 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="markCorrectButton" layoutX="971.0" layoutY="886.0" minWidth="31.0" mnemonicParsing="false" onAction="#markCorrect" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #696969; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Correct" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Button>
                   <TextField fx:id="testTimeField" alignment="CENTER" layoutX="948.0" layoutY="19.0" prefHeight="53.0" prefWidth="132.0" style="-fx-background-color: #505050; -fx-border-color: grey; -fx-background-radius: 0px 10px 10px 0px; -fx-border-radius: 0px 10px 10px 0px;" text="Time">
                      <font>
                         <Font name="Nirmala UI Bold" size="24.0" />
@@ -79,6 +74,21 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </TextField>
+                  <Button fx:id="downloadTestButton" layoutX="800.0" layoutY="886.0" minWidth="31.0" mnemonicParsing="false" onAction="#downloadTest" prefHeight="35.0" prefWidth="161.0" style="-fx-background-color: #696969; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Download Test" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="markCorrectButton" layoutX="971.0" layoutY="886.0" minWidth="31.0" mnemonicParsing="false" onAction="#markCorrect" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #696969; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Correct" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="uploadTestButton" layoutX="629.0" layoutY="886.0" minWidth="31.0" mnemonicParsing="false" onAction="#uploadTest" prefHeight="35.0" prefWidth="161.0" style="-fx-background-color: #696969; -fx-border-color: grey; -fx-background-radius: 10px; -fx-border-radius: 10px;" text="Upload Test" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
             <Button layoutX="14.0" layoutY="885.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="71.0" prefWidth="132.0" style="-fx-background-radius: 10px; -fx-background-color: #505050;" text="Exit">
